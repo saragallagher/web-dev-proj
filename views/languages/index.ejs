@@ -1,0 +1,7 @@
+<h1>ALL LANGUAGES:</h1>
+<a href="/languages/new"> <button>ADD NEW LANGUAGE</button></a>
+<% languages.forEach((language) => { %>
+  <li>
+    <a href="/languages/<%=language.id%>"><%= language.name %> (<%= language.resources.length %> Resources & <%= language.posts.length %> Posts)</a>
+  </li>
+<% }) %>

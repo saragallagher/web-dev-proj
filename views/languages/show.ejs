@@ -1,0 +1,29 @@
+<h1><%=language.name%></h1>
+
+<a href="/languages">HOME</a> |
+<a href="/languages/<%= language.id %>/edit">EDIT</a> | DELETE |
+<a href="/languages/<%= language.id %>/resources/new">ADD RESOURCE</a>
+
+<br>
+
+<h2>RESOURCES:</h2>
+<% if (language.resources.length === 0 ) { %>
+  <p>Bummer...<%= language.name%> has no resources yet... check back soon!</p>
+<% } else{ %>
+  <% language.resources.forEach(resource => {%>
+    <li>
+      <a href="<%= resource.link%>" target="_blank"><%=resource.name%> </a>
+    </li>
+  <%})%>
+<%}%>
+
+<h2>POSTS:</h2>
+
+<% if (language.posts.length === 0 ) { %>
+  <p>Bummer...<%= language.name%> has no posts yet... check back soon!</p>
+<% } else{ %>
+  <% language.posts.forEach(post =>{ %>
+    <h3> <%= post.title %></h3>
+    <p><%= post.body%></p>
+  <%})%>
+<%}%>
