@@ -1,0 +1,8 @@
+<h1>Edit Post</h1>
+<%=post.id%>
+<form action="/languages/<%=language.id%>" method="patch">
+  <input type="text" name="name" value="<%=post.title%>">
+  <textarea name="name" rows="8" cols="80"><%=post.body%></textarea>
+  <button type="submit">Update Post</button>
+</form>
+<a href="/languages/<%= language.id %>"><button> BACK</button></a>
