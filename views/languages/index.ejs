@@ -1,7 +1,21 @@
-<h1>ALL LANGUAGES:</h1>
+<h1>SOME LANGUAGES:</h1>
+
+  <% languages.forEach((language) => { %>
+    <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <a href="/languages/<%=language.id%>"><%= language.name %></a>
+        </div>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li><%= language.resources.length %> Resources</li>
+          <li><%= language.posts.length %> Posts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <% }) %>
+
 <a href="/languages/new"> <button>ADD NEW LANGUAGE</button></a>
-<% languages.forEach((language) => { %>
-  <li>
-    <a href="/languages/<%=language.id%>"><%= language.name %> (<%= language.resources.length %> Resources & <%= language.posts.length %> Posts)</a>
-  </li>
-<% }) %>
