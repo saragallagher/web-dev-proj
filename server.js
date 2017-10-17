@@ -4,6 +4,7 @@ const
   ejsLayouts = require('express-ejs-layouts'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
+  methodOverride = require('method-override'),
   logger = require('morgan'),
   app = express(),
   languageRoutes = require('./routes/language.js')
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 
 app.set('view engine', 'ejs')
+app.use(methodOverride('_method'))
 app.use(ejsLayouts)
 
 app.get('/', (req, res) => {

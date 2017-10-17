@@ -15,49 +15,26 @@
       <ul class="nav navbar-nav">
         <li><a href="/languages">HOME</a></li>
         <li><a href="/languages/<%= language.id %>/edit">EDIT</a></li>
-        <li><a href="#">DELETE</a></li>
         <li><a href="/languages/<%= language.id %>/resources/new">ADD RESOURCE</a> </li>
-        <li><a href="/languages/<%= language.id %>/posts/new">ADD POST</a></li>
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+
+  </nav>
 
 <h1><%=language.name%></h1>
 <hr>
 
-<h2>resources:</h2>
-<% if (language.resources.length === 0 ) { %>
-  <p>Bummer...<%= language.name%> has no resources yet... check back soon!</p>
-<% } else{ %>
-  <% language.resources.forEach(resource => {%>
-    <li>
-      <a href="<%= resource.link%>" target="_blank"><%=resource.name%> </a>
-    </li>
-  <%})%>
-<%}%>
-
-<div class="">
-  <h2>posts:</h2>
-
-  <% if (language.posts.length === 0 ) { %>
-    <p>Bummer...<%= language.name%> has no posts yet... check back soon!</p>
+<div class="col-3">
+  <h2>resources:</h2>
+  <% if (language.resources.length === 0 ) { %>
+    <p>Bummer...<%= language.name%> has no resources yet... check back soon!</p>
     <% } else{ %>
-      <% language.posts.forEach(post =>{ %>
-      <div class="col-md-4">
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="panel-title">
-              <%= post.title %>
-            </div>
-          </div>
-          <div class="panel-body">
-            <p><%= post.body%></p>
-            <a href="/languages/<%=language.id%>/posts/<%=post.id%>/edit"><button class="btn" type="button" name="button">Edit Post</button></a>
-          </div>
-        </div>
-      </div>
-      <%})%>
-      <%}%>
+      <% language.resources.forEach(resource => {%>
+        <li>
+          <a href="<%= resource.link%>" target="_blank"><%=resource.name%> </a>
+        </li>
+        <%})%>
+        <%}%>
 </div>

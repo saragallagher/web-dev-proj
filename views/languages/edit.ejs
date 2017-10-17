@@ -3,11 +3,15 @@
 <div class="col-sm-6 col-sm-offset-3">
   <h1>Edit Language</h1>
 
-  <form action="/languages" method="post">
+  <form method="post" action="/languages/<%= language.id %>?_method=PATCH">
     <div class="form-group">
       <input class="form-control" type="text" name="name" value="<%=language.name%>">
     </div>
     <button class="btn btn-primary" type="submit">Update Language</button>
+  </form>
+<br>
+  <form action="/languages/<%= language.id %>?_method=DELETE" method="post">
+    <button class="btn btn-primary" type="submit" name="button">Delete Language</button>
   </form>
 
 </div>

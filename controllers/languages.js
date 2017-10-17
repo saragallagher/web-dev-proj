@@ -30,7 +30,7 @@ module.exports = {
     })
   },
   update: (req, res) => {
-    Language.findByIdAndReplace(req.params.id, req.body, {new: true}, (err, language) => {
+    Language.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, language) => {
       if (err) return console.log(err)
       res.redirect('/languages/' + language.id)
     })
@@ -55,66 +55,5 @@ module.exports = {
         res.redirect('/languages/'+ language.id)
       })
     })
-  },
-  postNew: (req, res) => {
-    Language.findById(req.params.id, (err, language) => {
-      if(err) return console.log(err)
-      res.render('posts/new', {language: language})
-    })
-  },
-  postCreate: (req, res) => {
-    Language.findById(req.params.id, (err, language) => {
-      if(err) return console.log(err)
-      language.posts.push(req.body)
-      language.save((err) => {
-        res.redirect('/languages/' + language.id)
-      })
-    })
-  },
-  postShow: (req, res) => {
-    Language.findById(req.params.id, (err, language) => {
-      if(err) return console.log(err)
-      var thePost
-      language.posts.filter(post => {
-        if (post.id === req.params.postId){
-          thePost = post
-        }
-      })
-      res.render('posts/show', {language: language, post: thePost})
-    })
-  },
-  postEdit: (req, res) => {
-    Language.findById(req.params.id, (err, language) => {
-      if(err) return console.log(err)
-      var thePost
-      language.posts.filter(post => {
-        if (post.id === req.params.postId){
-          thePost = post
-        }
-      })
-      res.render('posts/edit', {language: language, post: thePost})
-    })
-  },
-  postUpdate: (req, res) => {
-    Language.findByIdAndUpdate(req.params.id,req.body,{new: true}, (err, language) => {
-      if(err) return console.log(err)
-      var thePost
-
-      language.posts.filter(post => {
-        if (post.id === req.params.postId){
-          thePost = post
-        }
-      })
-
-      var index = language.posts.indexOf(thePost)
-      language.posts[index] = req.body
-      console.log("HEllo THEre")
-
-      language.save((err) => {
-        res.redirect('/languages/' + language.id)
-      })
-
-    })
   }
-
 }
