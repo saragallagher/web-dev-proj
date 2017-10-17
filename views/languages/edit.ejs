@@ -1,7 +1,13 @@
-<h1>Edit Language</h1>
+<a href="/languages/<%= language.id %>"><button class="btn"> BACK</button></a>
 
-<form action="/languages" method="post">
-  <input type="text" name="name" value="<%=language.name%>">
-  <button type="submit">Update Language</button>
-</form>
-<a href="/languages/<%= language.id %>"><button> BACK</button></a>
+<div class="col-sm-6 col-sm-offset-3">
+  <h1>Edit Language</h1>
+
+  <form action="/languages" method="post">
+    <div class="form-group">
+      <input class="form-control" type="text" name="name" value="<%=language.name%>">
+    </div>
+    <button class="btn btn-primary" type="submit">Update Language</button>
+  </form>
+
+</div>

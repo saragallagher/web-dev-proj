@@ -37,17 +37,27 @@
   <%})%>
 <%}%>
 
-<h2>posts:</h2>
+<div class="">
+  <h2>posts:</h2>
 
-<% if (language.posts.length === 0 ) { %>
-  <p>Bummer...<%= language.name%> has no posts yet... check back soon!</p>
-<% } else{ %>
-  <% language.posts.forEach(post =>{ %>
-    <div class="post">
-      <h3> <%= post.title %></h3>
-      <hr>
-      <p><%= post.body%></p>
-      <a href="/languages/<%=language.id%>/posts/<%=post.id%>/edit"><button type="button" name="button">Edit Post</button></a>
-    </div>
-  <%})%>
-<%}%>
+  <% if (language.posts.length === 0 ) { %>
+    <p>Bummer...<%= language.name%> has no posts yet... check back soon!</p>
+    <% } else{ %>
+      <% language.posts.forEach(post =>{ %>
+      <div class="col-md-4">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <%= post.title %>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p><%= post.body%></p>
+            <a href="/languages/<%=language.id%>/posts/<%=post.id%>/edit"><button class="btn" type="button" name="button">Edit Post</button></a>
+          </div>
+        </div>
+      </div>
+      <%})%>
+      <%}%>
+</div>

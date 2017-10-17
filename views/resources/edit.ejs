@@ -1,8 +1,17 @@
-<h1>Update Resource</h1>
+<a href="/languages"><button class="btn">HOME</button></a>
 
-<form action="/languages" method="post">
-  <input type="text" name="name" value="<%= resource.name%>">
-  <input type="text" name="link" value="<%= resource.link%>">
-  <button type="submit">Update Resource</button>
-</form>
-<a href="/languages"><button>HOME</button></a>
+<div class="col-sm-6 col-sm-offset-3">
+  <h1>Update Resource</h1>
+
+  <form action="/languages" method="post">
+    <div class="form-group">
+      <input class="form-control" type="text" name="name" value="<%= resource.name%>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="link" value="<%= resource.link%>">
+    </div>
+    <button class="btn btn-primary" type="submit">Update Resource</button>
+  </form>
+
+
+</div>

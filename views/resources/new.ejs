@@ -1,8 +1,16 @@
-<h1>Add Resource</h1>
+<a href="/languages"><button class="btn">HOME</button></a>
 
-<form action="/languages/<%=language.id%>/resources" method="post">
-  <input type="text" name="name" placeholder="Name">
-  <input type="text" name="link" placeholder="Link">
-  <button type="submit">Add Resource</button>
-</form>
-<a href="/languages"><button>HOME</button></a>
+<div class="col-sm-6 col-sm-offset-3">
+  <h1>Add Resource</h1>
+
+  <form action="/languages/<%=language.id%>/resources" method="post">
+    <div class="form-group">
+        <input class="form-control" type="text" name="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="link" placeholder="Link">
+    </div>
+    <button class="btn btn-primary" type="submit">Add Resource</button>
+  </form>
+
+</div>
