@@ -55,5 +55,41 @@ module.exports = {
         res.redirect('/languages/'+ language.id)
       })
     })
+  },
+  resourceEdit: (req, res) => {
+    Language.findById(req.params.id, (err, language) => {
+      if(err) return console.log(err)
+
+      var theResource
+
+      language.resources.filter(resource => {
+        if(resource.id === req.params.resourceId){
+          theResource = resource
+        }
+      })
+
+        console.log('The language is', language)
+      res.render('resources/edit', {language: language, resource: theResource})
+    })
+  },
+  resourceUpdate: (req, res) => {
+    Language.findById(req.params.id, (err, language) => {
+      if(err) return console.log(err)
+
+      var theResource
+
+      language.resources.filter(resource => {
+        if(resource.id === req.params.resourceId){
+          theResource = resource
+        }
+      })
+
+      var index = language.resources.indexOf(theResource)
+      language.resources[index] = req.body
+
+      language.save((err) => {
+        res.redirect('/languages/' + language.id)
+      })
+    })
   }
 }

@@ -19,6 +19,7 @@ languageRouter.route('/:id')
 languageRouter.post('/:id/resources', languageController.resourceCreate)
 languageRouter.get('/:id/resources/new', languageController.resourceNew)
 
-// languageRouter.get('/:id/resources/:resourceId/edit', languageController.resourceEdit)
+languageRouter.get('/:id/resources/:resourceId/edit', languageController.resourceEdit)
+languageRouter.patch('/:id/resources/:resourceId', languageController.resourceUpdate)
 
 module.exports = languageRouter

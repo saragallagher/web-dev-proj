@@ -3,15 +3,14 @@
 <div class="col-sm-6 col-sm-offset-3">
   <h1>Update Resource</h1>
 
-  <form action="/languages" method="post">
+  <form method="post" action="/languages/<%= language.id %>/resources/<%=resource.id%>?_method=PATCH">
     <div class="form-group">
-      <input class="form-control" type="text" name="name" value="<%= resource.name%>">
+      <input class="form-control" type="text" name="name" value="<%=resource.name%>" >
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="link" value="<%= resource.link%>">
+      <input class="form-control" type="text" name="link" value="<%=resource.link%>">
     </div>
     <button class="btn btn-primary" type="submit">Update Resource</button>
   </form>
-
 
 </div>
